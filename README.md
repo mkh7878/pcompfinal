@@ -1,4 +1,4 @@
-# pcompfinal
+## pcompfinal 
 
 Mae Horak Physical Computing Final Project 2022
 "Inside Out"
