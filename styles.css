@@ -1,0 +1,380 @@
+
+#browser-screen {
+    font-size: clamp(1rem, 2.5vw, 3rem);
+    color: #666;
+}
+
+#smartphone-screen {
+    font-size: clamp(0.6rem, 1.6vw, 2rem);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    color: white;
+}
+
+h1 {
+font-family: 'Courier New', Courier, monospace;
+font-size: 4vw;
+}
+
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3.2vw;
+    color: white;
+    }
+
+p{
+font-family: 'Courier New', Courier, monospace;
+}
+
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    z-index: -1;
+    background-color: #9BABC9;
+}
+
+/* Header Styling */
+.header {
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures it stays above other content */
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center the text horizontally */
+}
+
+#header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(68, 68, 68, 0.6); /* Background color */
+    transition: opacity 0.8s ease; /* Smooth fade-in */
+    z-index: -1; /* Ensure it is behind the header content */
+}
+
+.header-link {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    z-index: 1001; /* Keep link content above the background */
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+.content {
+    padding: 20px;
+}
+        .row-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            height: 16.67%; /* 1/6th of the viewport height */
+        }
+
+        .rectangle {
+            flex: 1;
+            background-color: #B4C5E4; /* Custom color */
+            border-radius: 20px; /* Rounded corners */
+            margin: 5px;
+            box-sizing: border-box;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+
+        .rectangle.active {
+            /* background-color: pink; Change background to pink */
+            transform: scale(1.02, 1.05); /* Scale width by 102% and height by 105% */
+        }
+
+        .content-box {
+            position: relative;
+            width: 90%; /* Box takes up 40% of the width */
+            height: 70%; /* Height of the content box */
+            margin: auto; /* Center the content box */
+            background-color: #FFFFFF;
+            padding: 20px;
+            margin-top: 200px;
+            overflow-y: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+
+        
+ /* ***************************** DEVICES ***************************** */
+.device {
+    margin-top: 90px;
+    width: 100%;
+    max-width: 300px;
+    height: 600px;
+    background: #525F75;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    transition: all 1s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 5px solid #444;
+}
+
+/* Device Views */
+.device-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease;
+}
+
+.device-view.smartphone-view {
+    opacity: 1;
+}
+
+.device-view.browser-view {
+    opacity: 0;
+}
+
+/* Smartphone Layout */
+.smartphone .camera {
+    width: 60px;
+    height: 10px;
+    background: #b1bfda;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 1s ease;
+}
+
+.smartphone .screen {
+    width: 90%;
+    height: 430px;
+    background: #B4C5E4;
+    border-radius: 20px;
+    margin: 60px auto 0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.smartphone .screen .screen-content {
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+}
+
+/* Smartphone Home Button */
+.smartphone .home-button {
+    width: 50px;
+    height: 50px;
+    background: #444;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 1s ease;
+}
+
+/* Browser Layout */
+.browser .browser-buttons {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    gap: 8px;
+    transition: all 1s ease;
+}
+
+.browser .browser-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: all 1s ease;
+}
+
+.browser .browser-button:nth-child(1) {
+    background-color: #ff5f57; /* Red */
+}
+
+.browser .browser-button:nth-child(2) {
+    background-color: #ffbd2e; /* Yellow */
+}
+
+.browser .browser-button:nth-child(3) {
+    background-color: #28c840; /* Green */
+}
+
+.browser .search-bar {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    background: #444;
+    border-radius: 20px;
+    color: #ddd;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    transition: all 1s ease;
+    opacity: 0;
+}
+
+/* Browser Screen */
+.browser .screen {
+    width: 90%;
+    height: calc(400px); /* Adjust this value to account for the gap */
+    border-radius: 20px;
+    margin: 60px auto 0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    background: #B4C5E4;
+    color: #;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 20px; /* Adjust this value if needed */
+}
+
+
+.browser .screen .screen-content {
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+}
+
+/* Hover Animation */
+.device:hover {
+    max-width: 800px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.device:hover .smartphone .home-button {
+    opacity: 0;
+}
+
+.device:hover .smartphone .camera {
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+    background: #444;
+}
+
+.device:hover .browser .browser-buttons {
+    display: flex;
+}
+
+.device:hover .search-bar {
+    display: block;
+    opacity: 1;
+}
+
+/* Transition between views */
+.device:hover .device-view.smartphone-view {
+    opacity: 0;
+}
+
+.device:hover .device-view.browser-view {
+    opacity: 1;
+}
+
+
+
+
+/* ***************************** PROJECTS ***************************** */
+
+.project{
+    width: 90%;
+    background-color: #525F75;
+    height: 200px;
+}
+
+#portfolio-row{
+    padding-top: 100px;
+    padding-bottom: 400px;
+    text-align: center;
+}
+
+.experience-box{
+    background-color: #525F75;
+    border-radius: 20px;
+}
+
+.experience-icon{
+    height: 100px;
+    width: auto;
+}
+
+.typing-container {
+    overflow: hidden; /* Ensures the text is hidden initially */
+    white-space: nowrap; /* Prevents the text from wrapping */
+    border-right: 3px solid black; /* Creates a cursor effect */
+    width: 0; /* Starts with zero width */
+    animation: typing 4s steps(30, end) forwards, blink-caret 0.75s step-end infinite; /* Apply typing and blinking animations */
+}
+
+.typing-text {
+    display: inline; /* Keeps text in a single line */
+}
+
+@keyframes typing {
+    from { width: 0; } /* Starts with no text */
+    to { width: 100%; } /* Expands to full width */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; } /* Hide caret */
+    50% { border-color: black; } /* Show caret */
+}
+
+/*------- SPIN ---------- */
+
+
+.spinning-image {
+    width: 100px; /* Start width */
+    height: auto; /* Keep height constant */
+    transition: transform 1s ease-in-out;
+    transform-origin: left; /* Animate from the left edge */
+}
+
+.spinning-image:hover {
+    animation: scaleWidth 2s infinite;
+}
+
+@keyframes scaleWidth {
+    0%, 100% {
+        transform: scaleX(1); /* Width at 100px */
+    }
+    50% {
+        transform: scaleX(0); /* Width at 0px */
+    }
+}

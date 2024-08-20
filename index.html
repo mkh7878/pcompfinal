@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mae Horak</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div id="header-background"></div> <!-- Separate div for background -->
+        <a href="index.html" class="header-link">
+            <h1 class="typing-container">&lt;!-- Hello, my name is Mae --&gt;</h1>
+        </a>
+    </header>
+    
+    <div class="background">
+        <!-- 6x1 grid of rows, each containing 6 rectangles -->
+        <div class="row-container">
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+        </div>
+        <div class="row-container">
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+        </div>
+        <div class="row-container">
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+        </div>
+        <div class="row-container">
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+        </div>
+        <div class="row-container">
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+        </div>
+        <div class="row-container">
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+            <div class="rectangle"></div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="device">
+                    <!-- Device Views -->
+                    <div class="device-view smartphone-view">
+                        <div class="smartphone">
+                            <div class="camera"></div>
+                            <div class="screen">
+                                <div class="screen-content" id="smartphone-screen">
+                                    <p>I create adaptable, accessible and engaging digital experiences that are responsive across all devices.</p>
+                                </div>
+                            </div>
+                            <div class="home-button"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="device-view browser-view">
+                        <div class="browser">
+                            <div class="browser-buttons">
+                                <div class="browser-button"></div>
+                                <div class="browser-button"></div>
+                                <div class="browser-button"></div>
+                            </div>
+                            <input type="text" class="search-bar" placeholder="Search or enter URL">
+                            <div class="screen">
+                                <div class="screen-content" id="browser-screen">
+                                    <p>I create adaptable, accessible and engaging digital experiences that are responsive across all devices.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+<div class="row" id="portfolio-row">
+    <div class="col-12">
+        <h2>Experience</h2>
+    </div>
+
+    <div class="col-3">
+        
+    </div>
+    <div class="col-6">
+        <div class="experience-box">
+            <img src="HPExperience/white ring.png" class="spinning-image">
+                <p class="typing-text">Digital Experience Specialist</p>
+                       
+        </div>
+    </div>
+    </div>
+
+</div>
+
+    <script>
+        console.log('Script is running');
+
+        function updateRectangleColors(mouseY) {
+            const rows = document.querySelectorAll('.row-container');
+            const windowHeight = window.innerHeight;
+
+            rows.forEach((row, index) => {
+                const rowTop = (windowHeight / 6) * index;
+                const rowBottom = (windowHeight / 6) * (index + 1);
+
+                // Get all rectangles in the current row
+                const rectangles = row.querySelectorAll('.rectangle');
+
+                // Remove color-change class from all rectangles
+                rectangles.forEach(rectangle => rectangle.classList.remove('active'));
+
+                // Check if the mouse is in the current row
+                if (mouseY >= rowTop && mouseY < rowBottom) {
+                    rectangles.forEach(rectangle => rectangle.classList.add('active'));
+                }
+            });
+        }
+
+        // Event listener for mouse movement
+        document.addEventListener('mousemove', (event) => {
+            const mouseY = event.clientY;
+            updateRectangleColors(mouseY);
+        });
+
+        // Initial check
+        updateRectangleColors(window.innerHeight / 2); // Set initial position to the middle of the viewport
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) { // Adjust this value to control when the effect happens
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        window.addEventListener("scroll", function() {
+            const background = document.getElementById("header-background");
+            if (window.scrollY > 50) { // Adjust scroll distance as needed
+                background.style.opacity = "1"; // Fade in the background
+            } else {
+                background.style.opacity = "0"; // Fade out the background
+            }
+        });
+
+
+    </script>
+
+    </body>
+</html>
